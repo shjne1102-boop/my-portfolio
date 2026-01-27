@@ -54,7 +54,7 @@ export default function Hero() {
 
           <div className="flex justify-center lg:justify-end">
             <img
-              src="/src/avatxam.jpg"
+              src="/profile.jpg"
               alt={`${site.name} profile`}
               className="h-64 w-64 sm:h-80 sm:w-80 rounded-3xl object-cover border border-slate-800 shadow-2xl"
               onError={(e) => {

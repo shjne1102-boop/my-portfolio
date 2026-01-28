@@ -3,7 +3,7 @@ import Hero from "./sections/Hero";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import About from "./sections/About";
-import Footer from "./sections/Footer";
+import Footer from "./sections/footer";
 
 export default function App() {
   return (

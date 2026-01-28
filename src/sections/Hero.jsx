@@ -1,69 +1,58 @@
-import { site } from "../data/content";
+import Container from "../components/Container";
 
 export default function Hero() {
   return (
-    <section id="top" className="pt-12 sm:pt-16">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/40 p-6 sm:p-10">
-            <p className="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-800/40 px-3 py-1 text-sm text-slate-200">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Available for new projects
-            </p>
-
-            <h1 className="mt-6 text-3xl sm:text-5xl font-semibold tracking-tight text-slate-100">
-              {site.role} {site.tagline}
+    <section id="home" className="pt-10 lg:pt-14">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div className="pt-6">
+            <h1 className="text-white font-semibold leading-[1.05] text-4xl sm:text-5xl lg:text-6xl">
+              UI/UX Designer
+              <br />& Front-end
+              <br />
+              Developer
             </h1>
 
-            <p className="mt-4 max-w-2xl text-slate-300 leading-relaxed">
-              {site.intro}
+            <div className="mt-6 h-0.5 w-14 bg-yellow-400/90 rounded-full" />
+
+            <p className="mt-6 text-sm sm:text-base text-white/55 max-w-md leading-relaxed">
+              I design clean, modern interfaces and build responsive websites.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 flex items-center gap-3">
               <a
-                href="#work"
-                className="rounded-full bg-slate-100 px-5 py-2.5 text-sm font-medium text-slate-950 hover:bg-white transition"
+                href="#projects"
+                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium
+                            bg-yellow-400 text-black shadow-sm hover:bg-yellow-300 transition"
               >
-                View Work
+                View Projects
               </a>
-              <a
-                href="#contact"
-                className="rounded-full border border-slate-700 px-5 py-2.5 text-sm font-medium text-slate-100 hover:bg-slate-900 transition"
-              >
-                Contact
-              </a>
-            </div>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-              <div className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4">
-                <p className="text-slate-400">Location</p>
-                <p className="mt-1 font-medium text-slate-100">
-                  {site.location}
-                </p>
-              </div>
-              <div className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4">
-                <p className="text-slate-400">Focus</p>
-                <p className="mt-1 font-medium text-slate-100">{site.focus}</p>
-              </div>
-              <div className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4">
-                <p className="text-slate-400">Status</p>
-                <p className="mt-1 font-medium text-slate-100">{site.status}</p>
-              </div>
+              <a
+                href="#contacts"
+                className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium
+                           bg-yellow-400 text-black shadow-sm hover:bg-yellow-300 transition"
+              >
+                Contacts
+              </a>
             </div>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
-            <img
-              src="/profile.jpg"
-              alt={`${site.name} profile`}
-              className="h-64 w-64 sm:h-80 sm:w-80 rounded-3xl object-cover border border-slate-800 shadow-2xl"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
+          <div className="relative">
+            <div className="rounded-3xl border border-white/10 overflow-hidden">
+              <div className="relative aspect-square">
+                <img
+                  src="/hero.jpg"
+                  alt="Portrait"
+                  className="absolute inset-0 h-full w-full object-cover scale-125"
+                />
+              </div>
+            </div>
+
+            <div className="absolute -bottom-2 -right-2 h-10 w-10 rounded-2xl bg-white/5 border border-white/10" />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

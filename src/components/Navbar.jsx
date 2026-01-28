@@ -1,95 +1,46 @@
-import { useEffect, useState } from "react";
-import { nav, site } from "../data/content";
+import Container from "./Container";
+
+const nav = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contacts", label: "Contacts" },
+];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => (document.body.style.overflow = "");
-  }, [open]);
-
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-900/60 bg-slate-950/80 backdrop-blur">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <a
-            href="#top"
-            className="font-semibold tracking-tight text-slate-100"
-          >
-            {site.brand}
+    <header className="sticky top-0 z-50 bg-transparent border-b border-white/5">
+      <Container>
+        <div className="h-16 flex items-center justify-between">
+          <a href="#home" className="font-semibold tracking-tight">
+            <span className="text-orange-400">Adrian</span>
+            <span className="text-white">Vu.</span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
-            {nav.map((item) => (
+          <nav className="hidden md:flex items-center gap-8 text-sm text-white/70">
+            {nav.map((x) => (
               <a
-                key={item.id}
-                href={`#${item.id}`}
+                key={x.id}
+                href={`#${x.id}`}
                 className="hover:text-white transition"
               >
-                {item.label}
+                {x.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setOpen(true)}
-              className="md:hidden inline-flex items-center justify-center rounded-full border border-slate-800 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 hover:bg-slate-900 transition"
-              aria-label="Open menu"
-            >
-              Menu
-            </button>
-          </div>
-        </div>
-      </div>
+          <button className="hidden md:inline-flex items-center gap-2 text-xs bg-white text-black border border-white rounded-md px-3 py-2 hover:bg-white/90 transition">
+            EN <span className="opacity-60">&#9662;</span>
+          </button>
 
-      {/* Mobile overlay */}
-      {open && (
-        <div className="fixed inset-0 z-50 bg-black/60">
-          <div className="absolute inset-x-0 top-0 border-b border-slate-900/60 bg-slate-950">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex h-16 items-center justify-between">
-                <span className="font-semibold text-slate-100">
-                  {site.brand}
-                </span>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="inline-flex items-center justify-center rounded-full border border-slate-800 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 hover:bg-slate-900 transition"
-                  aria-label="Close menu"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-20">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="rounded-2xl border border-slate-800 bg-slate-950 p-4">
-                <div className="flex flex-col">
-                  {nav.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      onClick={() => setOpen(false)}
-                      className="rounded-xl px-4 py-3 text-slate-200 hover:bg-slate-900 hover:text-white transition"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <a
+            href="#contacts"
+            className="md:hidden text-xs text-white/80 border border-white/10 rounded-md px-3 py-2"
+          >
+            Menu
+          </a>
         </div>
-      )}
+      </Container>
     </header>
   );
 }

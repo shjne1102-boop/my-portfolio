@@ -1,31 +1,39 @@
-import Section from "../components/Section";
-import Chip from "../components/Chip";
-import Card from "../components/Card";
-import { highlights } from "../data/content";
+import Container from "../components/Container";
 
 export default function About() {
   return (
-    <Section id="about" eyebrow="About" title="A bit about me">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 text-slate-300 leading-relaxed">
-          <p>
-            I love turning Figma designs into clean, responsive interfaces with
-            strong attention to spacing, typography, and details.
-          </p>
-          <p className="mt-4">
-            My workflow is component-driven and focused on maintainable UI.
-          </p>
-        </div>
-
-        <Card>
-          <p className="text-sm text-slate-400">Highlights</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {highlights.map((h) => (
-              <Chip key={h}>{h}</Chip>
-            ))}
+    <section id="about" className="pt-20 pb-10">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+            <div className="relative aspect-square">
+              <img
+                src="/profile.jpg"
+                alt="About"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
-        </Card>
-      </div>
-    </Section>
+
+          <div>
+            <h2 className="text-white text-2xl sm:text-3xl font-semibold">
+              About me:
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-white/55 max-w-md leading-relaxed">
+              I'm a UI/UX designer and front-end developer passionate about
+              building beautiful and usable products.
+            </p>
+
+            <a
+              href="#contacts"
+              className="mt-8 inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-medium
+                         border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 transition"
+            >
+              Contact me
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
